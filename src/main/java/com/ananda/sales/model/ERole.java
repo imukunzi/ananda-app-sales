@@ -1,0 +1,19 @@
+package com.ananda.sales.model;
+
+public enum ERole {
+	ROLE_USER,
+    ROLE_MANAGER,
+    ROLE_ADMIN,
+    ROLE_CASHIER,
+    ROLE_HEADCASHIER,
+    ROLE_SALER,
+    ROLE_SALES,
+    ROLE_SHIPPING,
+    ROLE_STOCK,
+    ROLE_DELIVERY,
+    ROLE_PRODUCTS,
+    ROLE_INSPECT,
+    ROLE_MAIN_STOCK,
+    ROLE_STOCK_KEEPER,
+    ROLE_STAND_KEEPER
+}
