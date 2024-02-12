@@ -110,9 +110,9 @@ public class CustomersController {
 	@PostMapping("/customers")
 	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<Customers> saveCustomer(@RequestBody Customers b){
-		try {
+		try { 
 
-			Customers p = customerRepository.save(new Customers(b.getFullname(),b.getContact(),b.getPhone(),b.getEmail(),b.getOther(),b.getRemark(),b.getUsername()));
+			Customers p = customerRepository.save(new Customers(b.getFullname().toUpperCase(),b.getContact(),b.getPhone(),b.getEmail(),b.getOther(),b.getRemark(),b.getUsername(),b.getCelebrated_day(),b.getCelebrated_day_description()));
 
 			return new ResponseEntity<>(p, HttpStatus.CREATED);
 		} catch (Exception e) {

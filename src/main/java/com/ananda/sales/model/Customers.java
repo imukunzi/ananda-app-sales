@@ -37,13 +37,19 @@ public class Customers {
 	@Column(name = "username")
 	private String username;
 	
+	@Column(name = "celebrated_day")
+	private String celebrated_day;
+	
+	@Column(name = "celebrated_day_description")
+	private String celebrated_day_description;
+	
 
 	public Customers() {
 		 
 	}
 
 
-	public Customers(String fullname, String contact, String phone, String email, String other, String remark,String username) {
+	public Customers(String fullname, String contact, String phone, String email, String other, String remark,String username,String celebrated_day,String celebrated_day_description) {
 		 
 		this.fullname = fullname;
 		this.contact = contact;
@@ -52,6 +58,8 @@ public class Customers {
 		this.other = other;
 		this.remark = remark;
 		this.username = username;
+		this.celebrated_day = celebrated_day;
+		this.celebrated_day_description = celebrated_day_description;
 	}
 
 
@@ -137,13 +145,34 @@ public class Customers {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Customers [id=" + id + ", fullname=" + fullname + ", contact=" + contact + ", phone=" + phone
-				+ ", email=" + email + ", other=" + other + ", remark=" + remark + ", username=" + username + "]";
+	public String getCelebrated_day() {
+		return celebrated_day;
 	}
 
 
+	public void setCelebrated_day(String celebrated_day) {
+		this.celebrated_day = celebrated_day;
+	}
+
+
+	public String getCelebrated_day_description() {
+		return celebrated_day_description;
+	}
+
+
+	public void setCelebrated_day_description(String celebrated_day_description) {
+		this.celebrated_day_description = celebrated_day_description;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Customers [id=" + id + ", fullname=" + fullname + ", contact=" + contact + ", phone=" + phone
+				+ ", email=" + email + ", other=" + other + ", remark=" + remark + ", username=" + username
+				+ ", celebrated_day=" + celebrated_day + ", celebrated_day_description=" + celebrated_day_description
+				+ "]";
+	}
 	
+		
 
 }
