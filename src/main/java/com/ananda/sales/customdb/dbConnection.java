@@ -13,7 +13,7 @@ public class dbConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            String url = "jdbc:mysql://localhost:3306/db_ananda_sales_yes_phone?allowPublicKeyRetrieval=true&useSSL=false";
+            String url = "jdbc:mysql://localhost:3306/db_ananda_sales_app?allowPublicKeyRetrieval=true&useSSL=false";
            // String url = "jdbc:mysql://192.168.1.11:3306/db_isimbi_mart_v2";
             con = DriverManager.getConnection(url, "rudram", "rudram1008***");
         } catch (ClassNotFoundException ex) {

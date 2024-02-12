@@ -69,7 +69,7 @@ public class ProductsController {
 	}
 
 	@GetMapping("/products")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<Map<String, Object>> getAllProductsPage(@RequestParam(required = false) String code,
 			@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "50") int size,
 			@RequestParam(defaultValue = "id,desc") String[] sort) {
@@ -115,7 +115,7 @@ public class ProductsController {
 	}
 	
 	@GetMapping("/productsearch")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<Map<String, Object>> getAllProductSearch(@RequestParam(required = false) String code,@RequestParam(required = false) String type,
 			@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "50") int size,
 			@RequestParam(defaultValue = "id,desc") String[] sort) {
@@ -172,7 +172,7 @@ public class ProductsController {
 	}
 
 	@GetMapping("/productssearchwithname")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<Map<String, Object>> getAllProductsPageSearchByName(
 			@RequestParam(required = false) String code, @RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "50") int size, @RequestParam(defaultValue = "id,desc") String[] sort) {
@@ -218,7 +218,7 @@ public class ProductsController {
 	}
 
 	@PostMapping("/products")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<String> saveProducts(@RequestBody Products product) {
 
 		try {
@@ -255,7 +255,7 @@ public class ProductsController {
 	}
 
 	@GetMapping("/product/{id}")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<Products> getProduct(@PathVariable("id") long id) {
 
 		Optional<Products> productData = productRepository.findById(id);
@@ -269,7 +269,7 @@ public class ProductsController {
 	}
 
 	@PutMapping("/product/{id}")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<String> updateProducts(@PathVariable("id") long id, @RequestBody Products p) {
 
 //		int count = productRepository.checkIfProductExist(p.getName(), p.getCode(), p.getSize(), p.getColor());
@@ -317,7 +317,7 @@ public class ProductsController {
 	}
 
 	@DeleteMapping("/product/{id}")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<HttpStatus> delete(@PathVariable("id") long id) {
 
 		try {
@@ -329,7 +329,7 @@ public class ProductsController {
 	}
 
 	@PostMapping("/avairableqty")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<Integer> checkAvairableQty(@RequestBody ReportBodyDetails r) {
 
 		String id = r.getText1();
@@ -355,7 +355,7 @@ public class ProductsController {
 	//////////////////// images
 
 	@PostMapping("/upload")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
 		String message = "";
 		try {
@@ -369,7 +369,7 @@ public class ProductsController {
 	}
 
 	@GetMapping("/files")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<List<ResponseFile>> getListFiles() {
 		List<ResponseFile> files = storageService.getAllFiles().map(dbFile -> {
 			String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/files/")
@@ -380,7 +380,7 @@ public class ProductsController {
 	}
 
 	@GetMapping("/files/{id}")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<byte[]> getFile(@PathVariable String id) {
 		FileDB fileDB = storageService.getFile(id);
 		
