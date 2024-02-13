@@ -1218,7 +1218,7 @@ public class OrderDetailsController {
 		// check if customer exist
 		int count = customerRepo.checkIfCustomerExist(phone);
 		if (count < 1) {
-			customerRepo.save(new Customers(customer, "", phone, "", "saved From sales", "saved From sales", username));
+			customerRepo.save(new Customers(customer, "", phone, "", "saved From sales", "saved From sales", username,"",""));
 
 		}
 
