@@ -154,6 +154,8 @@ public class CustomersController {
 				customer.setEmail(p.getEmail());
 				customer.setOther(p.getOther());
 				customer.setRemark(p.getRemark());
+				customer.setCelebrated_day(p.getCelebrated_day());
+				customer.setCelebrated_day_description(p.getCelebrated_day_description());
 				 
 				
 				return new ResponseEntity<>(customerRepository.save(customer), HttpStatus.OK);
