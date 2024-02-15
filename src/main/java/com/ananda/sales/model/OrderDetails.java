@@ -89,6 +89,18 @@ public class OrderDetails {
 	@Column(name = "description")
 	private String description;
 	
+	@Column(name = "dealer")
+	private String dealer;
+	
+	@Column(name = "deal_type")
+	private String deal_type;
+	
+	@Column(name = "saller_percentage")
+	private double saller_percentage;
+	
+	@Column(name = "mbe_tracking")
+	private String mbe_tracking;
+	
 	
 
 	public OrderDetails() {
@@ -99,7 +111,8 @@ public class OrderDetails {
 
 	public OrderDetails(String orderid, String orderTime, String product, String code, int pid, int qty, String color,
 			String size, double price, String saller, String customer, String phone, String salesStatus, String stand,
-			String username,double total,String comment,String location,String cashier,double min_price,String authorization_status,String authorization_by,double product_price,String description) {
+			String username,double total,String comment,String location,String cashier,double min_price,String authorization_status,
+			String authorization_by,double product_price,String description,String dealer,String deal_type,double saller_percentage,String mbe_tracking) {
 		 
 		this.orderid = orderid;
 		this.orderTime = orderTime;
@@ -125,6 +138,11 @@ public class OrderDetails {
 		this.authorization_by=authorization_by;
 		this.product_price=product_price;
 		this.description=description;
+		this.dealer = dealer;
+		this.deal_type = deal_type;
+		this.saller_percentage = saller_percentage;
+		this.mbe_tracking = mbe_tracking;
+	
 	}
 
 
@@ -425,6 +443,54 @@ public class OrderDetails {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+
+
+	public String getDealer() {
+		return dealer;
+	}
+
+
+
+	public void setDealer(String dealer) {
+		this.dealer = dealer;
+	}
+
+
+
+	public String getDeal_type() {
+		return deal_type;
+	}
+
+
+
+	public void setDeal_type(String deal_type) {
+		this.deal_type = deal_type;
+	}
+
+
+
+	public double getSaller_percentage() {
+		return saller_percentage;
+	}
+
+
+
+	public void setSaller_percentage(double saller_percentage) {
+		this.saller_percentage = saller_percentage;
+	}
+
+
+
+	public String getMbe_tracking() {
+		return mbe_tracking;
+	}
+
+
+
+	public void setMbe_tracking(String mbe_tracking) {
+		this.mbe_tracking = mbe_tracking;
 	}
 
 

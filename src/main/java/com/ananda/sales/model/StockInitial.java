@@ -67,7 +67,7 @@ public class StockInitial {
 			int current_stock_qty, String status, double price, int qty_out, int price_out,String time_recorded,String description) {
 		super();
 		this.code = code;
-		this.pid = pid;
+		this.pid = pid;  
 		this.name = name;
 		this.color = color;
 		this.size = size;

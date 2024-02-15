@@ -29,6 +29,7 @@ import com.ananda.sales.model.Payments;
 import com.ananda.sales.model.ReportBodyDetails;
 import com.ananda.sales.model.SalesDetails;
 import com.ananda.sales.model.SalesSummary;
+import com.ananda.sales.model.SelectOptions;
 import com.ananda.sales.model.SellersReportPerformance;
 import com.ananda.sales.model.Stock;
 import com.ananda.sales.repository.CustomersRepository;
@@ -144,6 +145,30 @@ public class OrderDetailsController {
 		// String authorization_status=order.getAuthorization_status();
 		String authorization_status;
 		double product_price = order.getProduct_price();
+		
+         String dealer = order.getDealer();
+		
+		double saller_percentage = 0;
+		String deal_type = order.getDeal_type();
+		
+		if(selectectionRepo.findByValue(saller) !=null) {
+			SelectOptions s = selectectionRepo.findByValue(saller);
+			 saller_percentage = s.getSaller_percentage();
+		}
+		
+		
+		
+		String mbe_tracking = order.getMbe_tracking();
+		
+		double dealer_percentage = 0;
+		
+		if(deal_type.equals("ON-SITE")) {
+			dealer_percentage =5;
+		}else if(deal_type.equals("ONLINE")) {
+			dealer_percentage =3;
+		}else {
+			dealer_percentage =0;
+		}
 
 		if (price > min_price || price == min_price) {
 			authorization_status = "NORMAL-PRICE";
