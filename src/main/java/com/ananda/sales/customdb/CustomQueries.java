@@ -325,11 +325,11 @@ public class CustomQueries {
 					double product_price=0;
 					String description1 =  rs.getString("description");
 					
-					SalesDetails s =   new SalesDetails(  orderid,   orderTime,   product,   code,   pid,   qty,   color,
-							  size,   price,   saller,   customer,   phone,   salesStatus,   stand,
-							  username,  total,  paymentTime,  location,  cashier,  min_price,  authorization_status,  authorization_by,  product_price,description1);
+//					SalesDetails s =   new SalesDetails(  orderid,   orderTime,   product,   code,   pid,   qty,   color,
+//							  size,   price,   saller,   customer,   phone,   salesStatus,   stand,
+//							  username,  total,  paymentTime,  location,  cashier,  min_price,  authorization_status,  authorization_by,  product_price,description1);
 
-					salesDetailsList.add(s);
+//					salesDetailsList.add(s);
 					
 					//System.out.println("========custom query 293 qty====="+qty);
 

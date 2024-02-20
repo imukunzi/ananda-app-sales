@@ -36,6 +36,10 @@ public class SelectOptions {
 	
 	@Column(name = "saller_access_code")
 	private String saller_access_code;
+	
+	@Column(name = "saller_percentage")
+	private double saller_percentage=0;
+
 
 	public SelectOptions() {
 		 
@@ -49,6 +53,16 @@ public class SelectOptions {
 		this.username = username;
 		this.other=other;
 		this.saller_access_code=saller_access_code;
+	}
+	
+	public SelectOptions(String category, String value, String select_order, String username,String other,double saller_percentage) {
+		super();
+		this.category = category;
+		this.value = value;
+		this.select_order = select_order;
+		this.username = username;
+		this.other=other;
+		this.saller_percentage = saller_percentage;
 	}
 
 	public long getId() {
@@ -107,14 +121,22 @@ public class SelectOptions {
 		this.saller_access_code = saller_access_code;
 	}
 
+	public double getSaller_percentage() {
+		return saller_percentage;
+	}
+
+	public void setSaller_percentage(double saller_percentage) {
+		this.saller_percentage = saller_percentage;
+	}
+
 	@Override
 	public String toString() {
 		return "SelectOptions [id=" + id + ", category=" + category + ", value=" + value + ", select_order="
 				+ select_order + ", username=" + username + ", other=" + other + ", saller_access_code="
-				+ saller_access_code + "]";
+				+ saller_access_code + ", saller_percentage=" + saller_percentage + "]";
 	}
 
-
+	
 	
 	
 

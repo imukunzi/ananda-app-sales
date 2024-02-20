@@ -193,13 +193,13 @@ public class OrderDetailsController {
 			}
 
 			if (count < 1) {
-				SalesDetails o = salesDetailsRepository.save(new SalesDetails(orderid, orderTime, product, code, pid,
-						qty, color, size, price, saller, customer, phone, salesStatus, stand, username, total, "",
-						location, cashier, min_price, authorization_status, authorization_by, product_price,desctription));
-				orderMessage = "Added....";
-
-				// check if customer exist
-				checkIfCustomerExist(phone, customer, username);
+				SalesDetails o = salesDetailsRepository.save(new SalesDetails(orderid, orderTime, product, code, pid, qty,
+						color, size, price, saller, customer, phone, salesStatus, stand, username, total,"",location,cashier,min_price,authorization_status,authorization_by,dealer,deal_type,saller_percentage,
+						mbe_tracking, dealer_percentage));
+				 orderMessage="Added....";
+				  
+				 //check if customer exist
+				 checkIfCustomerExist(phone, customer, username);
 
 				return new ResponseEntity<>(orderMessage, HttpStatus.CREATED);
 
@@ -539,7 +539,7 @@ public class OrderDetailsController {
 			OrderDetailsTotal x = new OrderDetailsTotal(customer, phone, orderNo, date, total, payed, balance, other,
 					saller, cashier);
 
-			return new ResponseEntity<>(x, HttpStatus.OK);
+			return new ResponseEntity<>(x, HttpStatus.OK);  
 
 		} catch (Exception e) {
 			System.out.println(e);

@@ -114,8 +114,8 @@ public class SalesDetails {
 
 	public SalesDetails(String orderid, String orderTime, String product, String code, int pid, int qty, String color,
 			String size, double price, String saller, String customer, String phone, String salesStatus, String stand,
-			String username,double total,String paymentTime,String location,String cashier,double min_price,String authorization_status,
-			String authorization_by,double product_price,String description,String dealer,String deal_type,double saller_percentage,
+			String username,double total,String paymentTime,String location,String cashier,double min_price,
+			String authorization_status,String authorization_by,String dealer,String deal_type,double saller_percentage,
 			String mbe_tracking,double dealer_percentage) {
 		super();
 		this.orderid = orderid;
@@ -140,15 +140,12 @@ public class SalesDetails {
 		this.min_price=min_price;
 		this.authorization_status=authorization_status;
 		this.authorization_by=authorization_by;
-		this.product_price=product_price;
-		this.description=description;
 		this.dealer= dealer;
 		this.deal_type = deal_type;
 		this.saller_percentage = saller_percentage;
 		this.mbe_tracking = mbe_tracking;
 		this.dealer_percentage = dealer_percentage;
 	}
-
 
 
 	public int getId() {
