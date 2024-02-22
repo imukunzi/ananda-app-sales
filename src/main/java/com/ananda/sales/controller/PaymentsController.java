@@ -258,6 +258,8 @@ public class PaymentsController {
 						
 						//updte stock level
 						//get current stocklevel
+						System.out.println("====== 261 controller payment======="+detail.getPid()+" "+detail.getStand());
+						
 						int existingQty =stockLevelRepo.getCurrentStockLevel(detail.getPid(), detail.getStand());
 						int totalQty2 = existingQty - detail.getQty();
 						

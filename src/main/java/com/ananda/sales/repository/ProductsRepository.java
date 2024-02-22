@@ -35,5 +35,8 @@ public interface ProductsRepository extends JpaRepository<Products, Long> {
 	
 	@Query(value = "select suply_price as price from products where pid=?1 ")
 	double getSupplyPrice(int pid);
+	
+	@Query(value = "from products where barcode=?1 ")
+	Products scanProduct(String barcode);
 
 }

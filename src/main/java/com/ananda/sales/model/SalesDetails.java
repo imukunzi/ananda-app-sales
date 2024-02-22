@@ -96,13 +96,13 @@ public class SalesDetails {
 	private String deal_type;
 	
 	@Column(name = "saller_percentage")
-	private double saller_percentage;
+	private double saller_percentage=0;
 	
 	@Column(name = "mbe_tracking")
 	private String mbe_tracking;
 	
 	@Column(name = "dealer_percentage")
-	private double dealer_percentage;
+	private double dealer_percentage=0;
 	
 	
 

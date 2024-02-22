@@ -114,6 +114,31 @@ public class ProductsController {
 
 	}
 	
+	@PostMapping("/productscanned")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	public ResponseEntity<Map<String, Object>> getAllProductscanned(@RequestBody ReportBodyDetails r) {
+
+		try {
+			List<Order> orders = new ArrayList<Order>();
+
+		   String code = r.getText1();
+		 
+			Products products = productRepository.scanProduct(code);				 
+
+			Map<String, Object> response = new HashMap<>();
+			response.put("tutorials", products);
+			
+			System.out.println("++++++++++++++++++++++product scanner 137 +++++++++++++++" +code + " "+products);
+			 
+			 
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println("+++++++++++++++++++++++++++++++++++++" + e);
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+	
 	@GetMapping("/productsearch")
 	@PreAuthorize("hasRole('ROLE_PRODUCTS')")
 	public ResponseEntity<Map<String, Object>> getAllProductSearch(@RequestParam(required = false) String code,@RequestParam(required = false) String type,
