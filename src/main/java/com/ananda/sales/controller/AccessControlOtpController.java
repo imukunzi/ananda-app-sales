@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ananda.sales.model.AccessControl;
 import com.ananda.sales.model.AccessControllOtp;
+import com.ananda.sales.model.ReportBodyDetails;
 import com.ananda.sales.repository.AccessContollRepository;
 import com.ananda.sales.repository.AccessControllOtpRepository;
 import com.ananda.sales.sms.SendSms;
@@ -264,6 +265,31 @@ public class AccessControlOtpController {
 		String authorizedBranch = accessControlOtpRepository.findIfAuthorizationCodeExistUserBranch(code);
 		
 		//System.out.println("access otp authorization 213======"+y+" "+code+" user:"+authorizedBy);
+
+		
+		Map<String, Object> response = new HashMap<>();
+		response.put("isAuthorized", y);
+		response.put("authorizedBy", authorizedBy);
+		response.put("authorizedBranch", authorizedBranch);
+		
+
+		return new ResponseEntity<>(response, HttpStatus.OK);
+		
+
+	}
+	
+	@PostMapping("/accessotpauthorizationwithtype")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+	public ResponseEntity<Map<String, Object>> getAccessAuthorizationWithType(@RequestBody ReportBodyDetails r) {
+		
+		String code = r.getText1();
+		String type = r.getText2();
+
+		int y = accessControlOtpRepository.findIfAuthorizationCodeExistWithType(code,type);
+		String authorizedBy = accessControlOtpRepository.findIfAuthorizationCodeExistUserwithType(code,type);
+		String authorizedBranch = accessControlOtpRepository.findIfAuthorizationCodeExistUserBranchWithType(code,type);
+		
+		System.out.println("access otp authorization 213======"+y+" "+code+" user:"+authorizedBy+" type:"+type);
 
 		
 		Map<String, Object> response = new HashMap<>();

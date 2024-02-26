@@ -23,6 +23,10 @@ public interface AccessControllOtpRepository extends JpaRepository<AccessControl
 	Integer findIfAuthorizationCodeExist(String code);
 	
 	@Transactional
+	@Query(value = "select count(id) as count FROM accesscontrolotp where accessCode=?1 and type=?2")
+	Integer findIfAuthorizationCodeExistWithType(String code,String type);
+	
+	@Transactional
 	@Query(value = "select count(id) as count FROM accesscontrolotp where accessCode=?1 and type='Delete'")
 	Integer findIfDeleteCodeExist(String code);
 	
@@ -31,12 +35,20 @@ public interface AccessControllOtpRepository extends JpaRepository<AccessControl
 	String findIfAuthorizationCodeExistUser(String code);
 	
 	@Transactional
+	@Query(value = "select user FROM accesscontrolotp where accessCode=?1 and type=?2")
+	String findIfAuthorizationCodeExistUserwithType(String code,String type);
+	
+	@Transactional
 	@Query(value = "select user FROM accesscontrolotp where accessCode=?1 and type='Delete'")
 	String findIfDeleteCodeExistUser(String code);
 	
 	@Transactional
 	@Query(value = "select other  FROM accesscontrolotp where accessCode=?1 and type='Authorization'")
 	String findIfAuthorizationCodeExistUserBranch(String code);
+	
+	@Transactional
+	@Query(value = "select other  FROM accesscontrolotp where accessCode=?1 and type=?2")
+	String findIfAuthorizationCodeExistUserBranchWithType(String code,String type);
 	
 	@Transactional
 	@Query(value = "select other  FROM accesscontrolotp where accessCode=?1 and type='Delete'")
