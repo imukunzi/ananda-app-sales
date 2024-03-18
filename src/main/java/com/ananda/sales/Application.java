@@ -6,7 +6,7 @@ import java.util.Timer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//Ananda sales - ANANDA SALES
+//ANANDA SALES
 @SpringBootApplication
 public class Application {
 	

@@ -1,8 +1,12 @@
 package com.ananda.sales.controller;
 
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,13 +17,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ananda.app.model.ReportBodyDetails;
+import com.ananda.sales.repository.PaymentsRepository;
+import com.ananda.sales.repository.SalesSummaryRepository;
+import com.ananda.sales.repository.CustomersRepository;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/") //creating address api
 public class DashboardController {
+	
+	@Autowired
+	CustomersRepository customerRepository;
+	
+	@Autowired
+	private SalesSummaryRepository salesSummaryRepo;
+	
+	LocalDate currentdate = LocalDate.now();
+	int currentDay = currentdate.getDayOfMonth();
+	Month currentMonth = currentdate.getMonth();
+	int currentMonthNumber = currentdate.getMonthValue();
+	int currentYear = currentdate.getYear();
+	
+	private DecimalFormat decimalFormatter = new DecimalFormat("#,###.00");
 
-	private double SALES_JAN=50000;
+	private double SALES_JAN=0;
 	private double SALES_FEB=0;
 	private double SALES_MARC=0;
 	private double SALES_APR=0;
@@ -68,6 +89,19 @@ public class DashboardController {
 	public ResponseEntity<Map<String, Object>> getReport(@RequestBody ReportBodyDetails r) {
 		
 		try{
+			
+			String location = "T2000";
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-01-01 00:00:00", currentYear+"-01-31 23:59:59", location)!=null) {
+				SALES_JAN = salesSummaryRepo.salesMonthlyReport(currentYear+"-01-01 00:00:00", currentYear+"-01-31 23:59:59", location);
+			}
+			
+			
+			
+			
+			
+			System.out.println("======= 96 dashboard====="+SALES_JAN);
+			
 //			response from back-end and font-end where retrive-data
 		Map<String, Object> response = new HashMap<>(); 
 		response.put("SALES_JAN",SALES_JAN);
@@ -108,6 +142,11 @@ public class DashboardController {
 		response.put("PROFIT_OCT",PROFIT_OCT);
 		response.put("PROFIT_NOV",PROFIT_NOV);
 		response.put("PROFIT_DEC",PROFIT_DEC);
+		
+		
+		
+		
+		
 		
 		
 		return new ResponseEntity<>(response, HttpStatus.OK);

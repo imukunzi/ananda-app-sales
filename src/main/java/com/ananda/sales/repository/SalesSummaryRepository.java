@@ -143,7 +143,11 @@ int  checkSavedSalesSummaryDuplication(String date1,String orderno);
 long[]  selectSalesSummaryDuplicationId(String date1,String orderno);
 
 
-////////////////////end correcting possible saved duplicated payment//////////////////////////////
+////////////////////dashboard//////////////////////////////
+
+@Transactional
+@Query(value = "select sum(amount_payed) from salessummary where  ordertime between ?1 and ?2 and location=?3  and status!='Pending'")
+Double salesMonthlyReport(String date1,String date2,String location); 
 
       
 	
