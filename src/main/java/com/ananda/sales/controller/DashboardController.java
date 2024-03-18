@@ -96,11 +96,55 @@ public class DashboardController {
 				SALES_JAN = salesSummaryRepo.salesMonthlyReport(currentYear+"-01-01 00:00:00", currentYear+"-01-31 23:59:59", location);
 			}
 			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-02-01 00:00:00", currentYear+"-02-31 23:59:59", location)!=null) {
+				SALES_FEB = salesSummaryRepo.salesMonthlyReport(currentYear+"-02-01 00:00:00", currentYear+"-02-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-03-01 00:00:00", currentYear+"-03-31 23:59:59", location)!=null) {
+				SALES_MARC = salesSummaryRepo.salesMonthlyReport(currentYear+"-03-01 00:00:00", currentYear+"-03-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-04-01 00:00:00", currentYear+"-04-31 23:59:59", location)!=null) {
+				SALES_APR = salesSummaryRepo.salesMonthlyReport(currentYear+"-04-01 00:00:00", currentYear+"-04-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-05-01 00:00:00", currentYear+"-05-31 23:59:59", location)!=null) {
+				SALES_MAY = salesSummaryRepo.salesMonthlyReport(currentYear+"-05-01 00:00:00", currentYear+"-05-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-06-01 00:00:00", currentYear+"-06-31 23:59:59", location)!=null) {
+				SALES_JUN = salesSummaryRepo.salesMonthlyReport(currentYear+"-06-01 00:00:00", currentYear+"-06-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-07-01 00:00:00", currentYear+"-07-31 23:59:59", location)!=null) {
+				SALES_JULY = salesSummaryRepo.salesMonthlyReport(currentYear+"-07-01 00:00:00", currentYear+"-07-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-08-01 00:00:00", currentYear+"-08-31 23:59:59", location)!=null) {
+				SALES_AUG = salesSummaryRepo.salesMonthlyReport(currentYear+"-08-01 00:00:00", currentYear+"-08-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-09-01 00:00:00", currentYear+"-09-31 23:59:59", location)!=null) {
+				SALES_SEPT = salesSummaryRepo.salesMonthlyReport(currentYear+"-09-01 00:00:00", currentYear+"-09-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-10-01 00:00:00", currentYear+"-10-31 23:59:59", location)!=null) {
+				SALES_OCT = salesSummaryRepo.salesMonthlyReport(currentYear+"-10-01 00:00:00", currentYear+"-10-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-11-01 00:00:00", currentYear+"-11-31 23:59:59", location)!=null) {
+				SALES_NOV = salesSummaryRepo.salesMonthlyReport(currentYear+"-11-01 00:00:00", currentYear+"-11-31 23:59:59", location);
+			}
+			
+			if(salesSummaryRepo.salesMonthlyReport(currentYear+"-12-01 00:00:00", currentYear+"-12-31 23:59:59", location)!=null) {
+				SALES_DEC = salesSummaryRepo.salesMonthlyReport(currentYear+"-12-01 00:00:00", currentYear+"-12-31 23:59:59", location);
+			}
 			
 			
 			
 			
-			System.out.println("======= 96 dashboard====="+SALES_JAN);
+			
+			System.out.println("======= 96 dashboard====="+SALES_MARC);
 			
 //			response from back-end and font-end where retrive-data
 		Map<String, Object> response = new HashMap<>(); 
