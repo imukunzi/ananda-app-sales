@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ananda.app.model.Previsions;
-import com.ananda.app.repository.PrevisionRepository;
+import com.ananda.sales.repository.PrevisionRepository;
 import com.ananda.sales.model.Prevision;
 import com.ananda.sales.model.Products;
 
