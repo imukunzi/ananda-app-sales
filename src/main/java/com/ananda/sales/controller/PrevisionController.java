@@ -47,7 +47,7 @@ public class PrevisionController {
 			double november = prevision.getNovember();
 			double december = prevision.getDecember();
 
-			Prevision p = previsionRepository.save(new Previsions( username,  year,  description,  type,  january,  february,
+			Prevision p = previsionRepository.save(new Prevision( username,  year,  description,  type,  january,  february,
 					 march,  april,  may,  june,  july,  augostin,  september, octomber,  november,  december));
 
 				
