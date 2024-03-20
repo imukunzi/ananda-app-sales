@@ -27,31 +27,45 @@ public class PrevisionController {
 	@PostMapping("/prevision")
 	@PreAuthorize("hasRole('ROLE_MANAGER')")
 	public ResponseEntity<String> savePrevision(@RequestBody Prevision prevision) {
+		
+		String response="";
 
 		try {
 			
-			String username = prevision.getUsername();
-			int year = prevision.getYear();
-			String description = prevision.getDescription();
-			String type = prevision.getType();
-			double january = prevision.getJanuary();
-			double february = prevision.getFebruary();
-			double march = prevision.getMarch();
-			double april = prevision.getApril();
-			double may = prevision.getMay();
-			double june = prevision.getJune();
-			double july = prevision.getJuly();
-			double augostin = prevision.getAugostin();
-			double september = prevision.getSeptember();
-			double octomber = prevision.getOctomber();
-			double november = prevision.getNovember();
-			double december = prevision.getDecember();
+			int count  = previsionRepository.checkSavedPrevisionDuplication(prevision.getYear(), prevision.getType());
+			
+			if(count > 0) {
+				System.out.println("you hava saved this provision");
+				response="This prevision exist.";
+			}else {
+				
+				String username = prevision.getUsername();
+				int year = prevision.getYear();
+				String description = prevision.getDescription();
+				String type = prevision.getType();
+				double january = prevision.getJanuary();
+				double february = prevision.getFebruary();
+				double march = prevision.getMarch();
+				double april = prevision.getApril();
+				double may = prevision.getMay();
+				double june = prevision.getJune();
+				double july = prevision.getJuly();
+				double augostin = prevision.getAugostin();
+				double september = prevision.getSeptember();
+				double octomber = prevision.getOctomber();
+				double november = prevision.getNovember();
+				double december = prevision.getDecember();
 
-			Prevision p = previsionRepository.save(new Prevision( username,  year,  description,  type,  january,  february,
-					 march,  april,  may,  june,  july,  augostin,  september, octomber,  november,  december));
+				Prevision p = previsionRepository.save(new Prevision( username,  year,  description,  type,  january,  february,
+						 march,  april,  may,  june,  july,  augostin,  september, octomber,  november,  december));
+				
+				response="Saved successfully.";
+				
+			}
+			
 
 				
-				return new ResponseEntity<>("Prevision saved.", HttpStatus.CREATED);
+				return new ResponseEntity<>(response, HttpStatus.CREATED);
 
 			
 		} catch (Exception e) {
