@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +30,7 @@ import com.ananda.app.model.Previsions;
 import com.ananda.sales.repository.PrevisionRepository;
 import com.ananda.sales.model.Prevision;
 import com.ananda.sales.model.Products;
+import com.ananda.sales.model.ReportBodyDetails;
 
 
 @CrossOrigin(origins = "*")
@@ -51,6 +53,8 @@ public class PrevisionController {
 
 	}
 	
+	
+	//kwirinda duplicate kuri prevision
 	@PostMapping("/prevision")
 	@PreAuthorize("hasRole('ROLE_MANAGER')")
 	public ResponseEntity<String> savePrevision(@RequestBody Prevision prevision) {
@@ -103,7 +107,7 @@ public class PrevisionController {
 
 	}
 	
-	
+	//retrive data for table
 	@GetMapping("/prevision")
 	@PreAuthorize("hasRole('ROLE_MANAGER')")
 	public ResponseEntity<Map<String, Object>> getAllPrevisionPage(@RequestParam(required = false) String code,
@@ -152,6 +156,8 @@ public class PrevisionController {
 
 	}
 	
+	
+	//ipi for getting table of previsionlist by id
 	@GetMapping("/prevision/{id}")
 	@PreAuthorize("hasRole('ROLE_MANAGER')")
 	public ResponseEntity<Prevision> getPrevision(@PathVariable("id") long id) {
@@ -166,6 +172,8 @@ public class PrevisionController {
 
 	}
 	
+	
+	//Editing 
 	@PutMapping("/prevision/{id}")
 	@PreAuthorize("hasRole('ROLE_MANAGER')")
 	public ResponseEntity<String> updatePrevision(@PathVariable("id") long id, @RequestBody Prevision p) {
@@ -201,9 +209,7 @@ public class PrevisionController {
 		    prevision.setOctomber(p.getOctomber());
 		    prevision.setNovember(p.getNovember());
 		    prevision.setDecember(p.getDecember());
-			
-			
-
+		
 			previsionRepository.save(prevision);
 
 			return new ResponseEntity<>("Updated successfully!", HttpStatus.OK);
@@ -211,6 +217,20 @@ public class PrevisionController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 
+	}
+	
+	
+	//delete
+	@DeleteMapping("/prevision/{id}")
+	@PreAuthorize("hasRole('ROLE_MANAGER')")
+	public ResponseEntity<HttpStatus> delete(@PathVariable("id") long id) {
+
+		try {
+			previsionRepository.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 }
