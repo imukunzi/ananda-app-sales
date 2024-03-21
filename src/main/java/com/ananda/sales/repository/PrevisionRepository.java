@@ -22,5 +22,9 @@ public interface PrevisionRepository extends JpaRepository<Prevision, Long> {
 	@Transactional
 	@Query(value = "select count(id) as count from prevision where year =?1 and type=?2 ")
 	int  checkSavedPrevisionDuplication(int year,String type);
+	
+	@Transactional
+	@Query(value = "from prevision where year =?1 and type=?2 ")
+	Prevision  getPrevisionPerYearandType(int year,String type);
 
 }

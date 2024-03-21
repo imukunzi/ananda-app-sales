@@ -233,6 +233,29 @@ public class PrevisionController {
 		}
 	}
 	
+	
+	@PostMapping("/previsionperyear")
+	@PreAuthorize("hasRole('ROLE_MANAGER')")
+	public ResponseEntity<Prevision> getPrevisionPerYearAndType(@RequestBody ReportBodyDetails r) {
+		
+		try {
+			
+	    int year = Integer.valueOf(r.getText1()) ;
+	    String tyep = r.getText2();
+	    
+	    Prevision prevision = previsionRepository.getPrevisionPerYearandType(year, tyep);
+
+	    System.out.println("+++++++++++++++++++Prevision controller 248 ++++++++++++++++++"+prevision);
+	 
+
+		return new ResponseEntity<>(prevision, HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println("+++++++++++++++++++++++++++++++++++++" + e);
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+	
 }
 
 
