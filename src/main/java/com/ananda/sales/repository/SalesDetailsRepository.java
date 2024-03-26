@@ -140,6 +140,6 @@ public interface SalesDetailsRepository extends JpaRepository<SalesDetails, Inte
 	// dashboard
 	@Transactional
 	@Query("select sum(price - purchase_price) from salesdetail where ordertime between ?1 and ?2 and location=?3  and salesstatus !='TEMPORARY' and salesstatus !='Pending' order by id desc ")
-	Double findSalesProfit(String date1,String date2,String location);
+	Double findSalesProfit(String date1,String date2,String location); 
 
 }

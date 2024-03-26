@@ -147,7 +147,7 @@ public class DashboardController {
 			if(salesDetailsRepo.findSalesProfit(currentYear+"-01-01 00:00:00", currentYear+"-01-31 23:59:59", location)!=null) {
 				PROFIT_JAN = salesDetailsRepo.findSalesProfit(currentYear+"-01-01 00:00:00", currentYear+"-01-31 23:59:59", location);
 			}
-			
+			 
 			
 			
 			System.out.println("======= 96 dashboard====="+PROFIT_JAN);
