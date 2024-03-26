@@ -57,8 +57,8 @@ public class DashboardController {
 	private double SALES_NOV=0;
 	private double SALES_DEC=0;
 	
-	private double TARGET_SALES_JAN=20000;
-	private double TARGET_SALES_FEB=0;
+//	private double TARGET_SALES_JAN=0;
+//	private double TARGET_SALES_FEB=0;
 	private double TARGET_SALES_MARC=0;
 	private double TARGET_SALES_APR=0;
 	private double TARGET_SALES_MAY=0;
@@ -167,8 +167,8 @@ public class DashboardController {
 		response.put("SALES_NOV",SALES_NOV);
 		response.put("SALES_DEC",SALES_DEC);
 		
-		response.put("TARGET_SALES_JAN",TARGET_SALES_JAN);
-		response.put("TARGET_SALES_FEB",TARGET_SALES_FEB);
+//		response.put("TARGET_SALES_JAN",TARGET_SALES_JAN);
+//		response.put("TARGET_SALES_FEB",TARGET_SALES_FEB);
 		response.put("TARGET_SALES_MARC",TARGET_SALES_MARC);
 		response.put("TARGET_SALES_APR",TARGET_SALES_APR);
 		response.put("TARGET_SALES_MAY",TARGET_SALES_MAY);

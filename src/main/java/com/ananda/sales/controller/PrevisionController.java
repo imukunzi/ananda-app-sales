@@ -241,11 +241,11 @@ public class PrevisionController {
 		try {
 			
 	    int year = Integer.valueOf(r.getText1()) ;
-	    String tyep = r.getText2();
+	    String type = r.getText2();
 	    
-	    Prevision prevision = previsionRepository.getPrevisionPerYearandType(year, tyep);
+	    Prevision prevision = previsionRepository.getPrevisionPerYearandType(year, type);
 
-	    System.out.println("+++++++++++++++++++Prevision controller 248 ++++++++++++++++++"+prevision);
+//	    System.out.println("+++++++++++++++++++Prevision controller 248 ++++++++++++++++++"+prevision);
 	 
 
 		return new ResponseEntity<>(prevision, HttpStatus.OK);
