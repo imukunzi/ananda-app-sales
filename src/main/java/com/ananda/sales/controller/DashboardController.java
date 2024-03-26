@@ -70,7 +70,7 @@ public class DashboardController {
 	private double TARGET_SALES_NOV=0;
 	private double TARGET_SALES_DEC=0;
 	
-	private double PROFIT_JAN=60000;
+	private double PROFIT_JAN=0;
 	private double PROFIT_FEB=0;
 	private double PROFIT_MARC=0;
 	private double PROFIT_APR=0;
@@ -144,11 +144,55 @@ public class DashboardController {
 				SALES_DEC = salesSummaryRepo.salesMonthlyReport(currentYear+"-12-01 00:00:00", currentYear+"-12-31 23:59:59", location);
 			}
 			
+			
+			//Profit
 			if(salesDetailsRepo.findSalesProfit(currentYear+"-01-01 00:00:00", currentYear+"-01-31 23:59:59", location)!=null) {
 				PROFIT_JAN = salesDetailsRepo.findSalesProfit(currentYear+"-01-01 00:00:00", currentYear+"-01-31 23:59:59", location);
 			}
-			 
 			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-02-01 00:00:00", currentYear+"-02-31 23:59:59", location)!=null) {
+				PROFIT_FEB = salesDetailsRepo.findSalesProfit(currentYear+"-02-01 00:00:00", currentYear+"-02-31 23:59:59", location);
+			}
+			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-03-01 00:00:00", currentYear+"-03-31 23:59:59", location)!=null) {
+				PROFIT_MARC = salesDetailsRepo.findSalesProfit(currentYear+"-03-01 00:00:00", currentYear+"-03-31 23:59:59", location);
+			}
+			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-04-01 00:00:00", currentYear+"-04-31 23:59:59", location)!=null) {
+				PROFIT_APR = salesDetailsRepo.findSalesProfit(currentYear+"-04-01 00:00:00", currentYear+"-04-31 23:59:59", location);
+			}
+			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-05-01 00:00:00", currentYear+"-05-31 23:59:59", location)!=null) {
+				PROFIT_MAY = salesDetailsRepo.findSalesProfit(currentYear+"-05-01 00:00:00", currentYear+"-05-31 23:59:59", location);
+			}
+			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-06-01 00:00:00", currentYear+"-06-31 23:59:59", location)!=null) {
+				PROFIT_JUN = salesDetailsRepo.findSalesProfit(currentYear+"-06-01 00:00:00", currentYear+"-06-31 23:59:59", location);
+			}
+			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-07-01 00:00:00", currentYear+"-07-31 23:59:59", location)!=null) {
+				PROFIT_JULY = salesDetailsRepo.findSalesProfit(currentYear+"-07-01 00:00:00", currentYear+"-07-31 23:59:59", location);
+			}
+			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-08-01 00:00:00", currentYear+"-08-31 23:59:59", location)!=null) {
+				PROFIT_AUG = salesDetailsRepo.findSalesProfit(currentYear+"-08-01 00:00:00", currentYear+"-08-31 23:59:59", location);
+			}
+			 
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-09-01 00:00:00", currentYear+"-09-31 23:59:59", location)!=null) {
+				PROFIT_SEPT = salesDetailsRepo.findSalesProfit(currentYear+"-09-01 00:00:00", currentYear+"-09-31 23:59:59", location);
+			}
+			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-10-01 00:00:00", currentYear+"-10-31 23:59:59", location)!=null) {
+				PROFIT_OCT = salesDetailsRepo.findSalesProfit(currentYear+"-10-01 00:00:00", currentYear+"-10-31 23:59:59", location);
+			}
+			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-11-01 00:00:00", currentYear+"-11-31 23:59:59", location)!=null) {
+				PROFIT_NOV = salesDetailsRepo.findSalesProfit(currentYear+"-11-01 00:00:00", currentYear+"-11-31 23:59:59", location);
+			}
+			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-12-01 00:00:00", currentYear+"-12-31 23:59:59", location)!=null) {
+				PROFIT_DEC = salesDetailsRepo.findSalesProfit(currentYear+"-12-01 00:00:00", currentYear+"-12-31 23:59:59", location);
+			}
 			
 			System.out.println("======= 96 dashboard====="+PROFIT_JAN);
 			
