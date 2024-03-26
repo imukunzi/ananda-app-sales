@@ -104,6 +104,9 @@ public class SalesDetails {
 	@Column(name = "dealer_percentage")
 	private double dealer_percentage=0;
 	
+	@Column(name = "purchase_price")
+	private double purchase_price=0;
+	
 	
 
 	public SalesDetails() {
@@ -116,7 +119,7 @@ public class SalesDetails {
 			String size, double price, String saller, String customer, String phone, String salesStatus, String stand,
 			String username,double total,String paymentTime,String location,String cashier,double min_price,
 			String authorization_status,String authorization_by,String dealer,String deal_type,double saller_percentage,
-			String mbe_tracking,double dealer_percentage) {
+			String mbe_tracking,double dealer_percentage,double purchase_price) {
 		super();
 		this.orderid = orderid;
 		this.orderTime = orderTime;
@@ -145,6 +148,7 @@ public class SalesDetails {
 		this.saller_percentage = saller_percentage;
 		this.mbe_tracking = mbe_tracking;
 		this.dealer_percentage = dealer_percentage;
+		this.purchase_price = purchase_price;
 	}
 
 
@@ -508,6 +512,18 @@ public class SalesDetails {
 
 
 
+	public double getPurchase_price() {
+		return purchase_price;
+	}
+
+
+
+	public void setPurchase_price(double purchase_price) {
+		this.purchase_price = purchase_price;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "SalesDetails [id=" + id + ", orderid=" + orderid + ", orderTime=" + orderTime + ", product=" + product
@@ -518,7 +534,8 @@ public class SalesDetails {
 				+ min_price + ", authorization_status=" + authorization_status + ", authorization_by="
 				+ authorization_by + ", product_price=" + product_price + ", description=" + description + ", dealer="
 				+ dealer + ", deal_type=" + deal_type + ", saller_percentage=" + saller_percentage + ", mbe_tracking="
-				+ mbe_tracking + ", dealer_percentage=" + dealer_percentage + "]";
+				+ mbe_tracking + ", dealer_percentage=" + dealer_percentage + ", purchase_price=" + purchase_price
+				+ "]";
 	}
 
 

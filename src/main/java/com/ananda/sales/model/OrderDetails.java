@@ -101,6 +101,9 @@ public class OrderDetails {
 	@Column(name = "mbe_tracking")
 	private String mbe_tracking;
 	
+	@Column(name = "purchase_price")
+	private double purchase_price=0;
+	
 	
 
 	public OrderDetails() {
@@ -112,7 +115,8 @@ public class OrderDetails {
 	public OrderDetails(String orderid, String orderTime, String product, String code, int pid, int qty, String color,
 			String size, double price, String saller, String customer, String phone, String salesStatus, String stand,
 			String username,double total,String comment,String location,String cashier,double min_price,String authorization_status,
-			String authorization_by,double product_price,String description,String dealer,String deal_type,double saller_percentage,String mbe_tracking) {
+			String authorization_by,double product_price,String description,String dealer,String deal_type,
+			double saller_percentage,String mbe_tracking,double purchase_price) {
 		 
 		this.orderid = orderid;
 		this.orderTime = orderTime;
@@ -142,6 +146,7 @@ public class OrderDetails {
 		this.deal_type = deal_type;
 		this.saller_percentage = saller_percentage;
 		this.mbe_tracking = mbe_tracking;
+		this.purchase_price = purchase_price;
 	
 	}
 
@@ -495,7 +500,17 @@ public class OrderDetails {
 
 
 
-	
-		 
+	public double getPurchase_price() {
+		return purchase_price;
+	}
+
+
+
+	public void setPurchase_price(double purchase_price) {
+		this.purchase_price = purchase_price;
+	}
+
+
+	 
 
 }

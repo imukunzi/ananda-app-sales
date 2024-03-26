@@ -145,6 +145,7 @@ public class OrderDetailsController {
 		// String authorization_status=order.getAuthorization_status();
 		String authorization_status;
 		double product_price = order.getProduct_price();
+		double purchase_price = order.getPurchase_price();
 		
          String dealer = order.getDealer();
 		
@@ -195,7 +196,7 @@ public class OrderDetailsController {
 			if (count < 1) {
 				SalesDetails o = salesDetailsRepository.save(new SalesDetails(orderid, orderTime, product, code, pid, qty,
 						color, size, price, saller, customer, phone, salesStatus, stand, username, total,"",location,cashier,min_price,authorization_status,authorization_by,dealer,deal_type,saller_percentage,
-						mbe_tracking, dealer_percentage));
+						mbe_tracking, dealer_percentage,purchase_price));
 				 orderMessage="Added....";
 				  
 				 //check if customer exist

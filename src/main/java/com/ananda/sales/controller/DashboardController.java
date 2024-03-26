@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ananda.app.model.ReportBodyDetails;
+import com.ananda.sales.repository.SalesDetailsRepository;
 import com.ananda.sales.repository.PaymentsRepository;
 import com.ananda.sales.repository.SalesSummaryRepository;
 import com.ananda.sales.repository.CustomersRepository;
@@ -31,6 +32,9 @@ public class DashboardController {
 	
 	@Autowired
 	private SalesSummaryRepository salesSummaryRepo;
+	
+	@Autowired
+	private SalesDetailsRepository salesDetailsRepo;
 	
 	LocalDate currentdate = LocalDate.now();
 	int currentDay = currentdate.getDayOfMonth();
@@ -140,11 +144,13 @@ public class DashboardController {
 				SALES_DEC = salesSummaryRepo.salesMonthlyReport(currentYear+"-12-01 00:00:00", currentYear+"-12-31 23:59:59", location);
 			}
 			
+			if(salesDetailsRepo.findSalesProfit(currentYear+"-01-01 00:00:00", currentYear+"-01-31 23:59:59", location)!=null) {
+				PROFIT_JAN = salesDetailsRepo.findSalesProfit(currentYear+"-01-01 00:00:00", currentYear+"-01-31 23:59:59", location);
+			}
 			
 			
 			
-			
-			System.out.println("======= 96 dashboard====="+SALES_MARC);
+			System.out.println("======= 96 dashboard====="+PROFIT_JAN);
 			
 //			response from back-end and font-end where retrive-data
 		Map<String, Object> response = new HashMap<>(); 
